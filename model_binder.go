@@ -21,7 +21,7 @@ import "github.com/labstack/echo/v4"
 // 	}
 // }
 
-func MakeMiddlewareFrom(binder func(ctx echo.Context) (interface{}, error)) echo.MiddlewareFunc {
+func MakeModelBinder(binder func(ctx echo.Context) (interface{}, error)) echo.MiddlewareFunc {
 	return func(next echo.HandlerFunc) echo.HandlerFunc {
 		return func(ctx echo.Context) error {
 			model, err := binder(ctx)
